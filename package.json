@@ -1,0 +1,84 @@
+{
+	"name": "ez1ext",
+	"displayName": "Easy One Extension",
+	"description": "An optimized extension bunddle consists of Adam's Toolbar, Duplicate tab and select-same-text.",
+	"version": "0.1",
+	"publisher": "KnIfER",
+	"icon": "icon.png",
+	"homepage": "https://github.com/appxmod/Easy-One-Extension",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/appxmod/Easy-One-Extension"
+	},
+	"engines": {
+		"vscode": "^1.15.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./extension"
+	, "__metadata": {
+		"id": "408ea3c2-9999-4ed3-95e9-36c6671ea77b",
+		"publisherId": "c7911723-8aff-4fac-8586-15b130003286",
+		"publisherDisplayName": "KnIfER",
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1642407394743
+	}
+	,"contributes": {
+		"commands": [
+			{
+				"command": "ez.toggleWrapTab",
+				"title": "切换标签页换行"
+			}
+			, {
+				"command": "ez.pasteAndSelect",
+				"title": "粘贴并选择"
+			}
+			, {
+				"command": "ez.duplicateTab",
+				"title": "&Duplicate Tab"
+			}
+			, {
+				"command": "ez.fullpath",
+				"title": "Copy full path"
+			}
+			, {
+				"command": "ez.unselect",
+				"title": "Unselect Last Selection"
+			}
+			, {
+				"command": "ez.selectNxt",
+				"title": "Select Same Text"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "ez.selectNxt",
+				"mac": "cmd+shift+d",
+				"key": "ctrl+shift+d",
+				"when": "editorTextFocus"
+			}
+		],
+		"menus": {
+			"editor/title/context": [
+				{
+					"command": "ez.duplicateTab"
+				}
+				, {
+					"command": "ez.unselect"
+				}
+			]
+			,"editor/context": [
+				{
+					"command": "ez.unselect",
+					"group": "2_modification",
+					"when": "editorHasSelection",
+					"title": "Unselect Last Selection"
+				}
+			]
+		}
+	}
+}
