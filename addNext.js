@@ -45,8 +45,9 @@ const  sep1 = /[\u0000-\u002F\u003A-\u0040\u005B-\u0060\u007B-\u007E\u2000-\u2bf
 			, len = searchText.length
 			;
 		while((idx=text.indexOf(searchText, startIndex)) >= 0) {
-			var st=text[idx-1], idx1=idx+len, ed=text[idx1];
-			if((!st||sep1.test(st)) && (!ed||sep1.test(ed))) {
+			var st=text[idx-1], idx1=idx+len, ed=text[idx1], c0=text[idx], c1=text[idx1-1];
+			if((!st||st!='_'&&sep1.test(st))||sep1.test(c0) 
+				&& (!ed||ed!='_'&&sep1.test(ed))||sep1.test(c1)) {
 				addSelection(idx, idx + len);
 				return true;
 			}
@@ -54,7 +55,16 @@ const  sep1 = /[\u0000-\u002F\u003A-\u0040\u005B-\u0060\u007B-\u007E\u2000-\u2bf
 		}
 	};
 	
+
+	function error(msg) {
+		throw new Error(msg);
+	}
+	
 	const searchStartToFirst = () => {
+		//error(JSON.stringify(vscode.workspace.getConfiguration('ez1ext').selectNextWrapped));
+		if(true!==vscode.workspace.getConfiguration('ez1ext').selectNextWrapped) {
+			return;
+		}
 		const { selections } = vscode.window.activeTextEditor;
 		const start = new vscode.Position(0, 0);
 		const end = selections[0].start;

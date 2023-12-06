@@ -49,6 +49,10 @@ exports.activate = function (context) {
                 selections.pop(); // Remove the last selection
                 editor.selections = selections;
             }
+            if (selections.length > 0) {
+                const lastSelection = selections[selections.length - 1];
+                editor.revealRange(lastSelection, vscode.TextEditorRevealType.Default);
+            }
         }
     }));
 };
@@ -112,23 +116,30 @@ exports.deactivate = function deactivate() {
     t = null;
 };
 
-
-function activateAutoSelect(context) {
-    // Create an output channel for logging extension-related activities
-    // const outputChannel = vscode.window.createOutputChannel("AutoSelectPastedText");
-    // Function to handle conditional logging based on the enableLogging setting
-    const log = (message) => {
-        // const enableLogging = vscode.workspace.getConfiguration('autoSelectPastedText').get('enableLogging');
-        // if (enableLogging) {
-        //     outputChannel.appendLine(message);
-        // }
-    };
+var outputChannel;
+var log = (message) => {
+    // const enableLogging = vscode.workspace.getConfiguration('autoSelectPastedText').get('enableLogging');
+    // if (enableLogging) {
+    if(outputChannel)
+        outputChannel.appendLine(message);
+    // }
+};
     
+function activateAutoSelect(context) {
+    // outputChannel = vscode.window.createOutputChannel("ex1ext");
+
     context.subscriptions.push(vscode.commands.registerCommand('ez.pasteAndSelect', async () => {
         const editor = vscode.window.activeTextEditor;
         if(!editor/*  || !editor.focused */) {
-            return;// vscode.commands.executeCommand('editor.action.clipboardPasteAction');
+            return;// 
         }
+    
+        const selections = editor.selections;
+        if (selections.length > 1) {
+            vscode.commands.executeCommand('editor.action.clipboardPasteAction');
+            return;
+        }
+        
         const enableAutoSelection = true;//vscode.workspace.getConfiguration('autoSelectPastedText').get('enableAutoSelection');
         const enableManualSelection = vscode.workspace.getConfiguration('autoSelectPastedText').get('enableManualSelection');
 

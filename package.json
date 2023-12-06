@@ -2,7 +2,7 @@
 	"name": "ez1ext",
 	"displayName": "Easy One Extension",
 	"description": "An optimized extension bunddle consists of Adam's Toolbar, Duplicate tab and select-same-text.",
-	"version": "0.1",
+	"version": "0.2.0",
 	"publisher": "KnIfER",
 	"icon": "icon.png",
 	"homepage": "https://github.com/appxmod/Easy-One-Extension",
@@ -17,7 +17,7 @@
 		"Other"
 	],
 	"activationEvents": [
-		"*"
+		"onStartupFinished"
 	],
 	"main": "./extension"
 	, "__metadata": {
@@ -79,6 +79,16 @@
 					"title": "Unselect Last Selection"
 				}
 			]
+		},
+		"configuration": {
+			"title": "ez1ext",
+			"properties": {
+				"ez1ext.selectNextWrapped": {
+					"type": "boolean",
+					"default": false,
+					"description": "enable searchStartToFirst"
+				}
+			}
 		}
 	}
 }
