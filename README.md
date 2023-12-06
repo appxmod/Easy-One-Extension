@@ -8,7 +8,7 @@ i18n is not provided, [still.](https://github.com/appxmod/Easy-One-Extension/blo
 1. Duplicate tab - https://github.com/IvanGrigorov/duplicate-tab  
 ✨ lowered version requirement of vscode.    
 1. select-same-text - https://github.com/ehaynes99/vscode-select-same-text  
-✨ Added undo last selection command and menus.  see [video](https://twitter.com/KnIfER21612801/status/1732314808526012419)
+✨ Added undo last selection command and menus.  see [video](https://twitter.com/KnIfER21612801/status/1732314808526012419)   
 ✨ Force to search whole word.
 
 
