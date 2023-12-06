@@ -23,4 +23,4 @@ i18n is not provided, [still.](https://github.com/appxmod/Easy-One-Extension/blo
 - ✨ When undo select-next, focus on the last selection. 
 - ✨ Force to search whole word.  Narrowed word delimiter. (exclude '_')    
 - ✨ Won't search for whole word if selection startsWith-or-endsWith word delimiter.  
-- ✨ Added option 'ezext.selectNextWrapped', default to false.  
+- ✨ Added option 'ez1ext.selectNextWrapped', default to false.  
