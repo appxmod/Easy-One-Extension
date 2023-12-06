@@ -17,3 +17,10 @@ i18n is not provided, [still.](https://github.com/appxmod/Easy-One-Extension/blo
 
 ![image](https://github.com/appxmod/Easy-One-Extension/assets/11593903/3798405a-3a17-42ad-a42c-0304a470c0b0)
 
+
+  
+### Select Next Occurrence
+- ✨ When undo select-next, focus on the last selection. 
+- ✨ Force to search whole word.  Narrowed word delimiter. (exclude '_')    
+- ✨ Won't search for whole word if selection startsWith-or-endsWith word delimiter.  
+- ✨ Added option 'ezext.selectNextWrapped', default to false.  
