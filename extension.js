@@ -43,7 +43,7 @@ exports.activate = function (context) {
     context.subscriptions.push(vscode.commands.registerCommand('ez.selectNxt', addNext));
     context.subscriptions.push(vscode.commands.registerCommand('ez.unselect', () => {
         const editor = vscode.window.activeTextEditor;
-        if (editor) {
+        if (editor) {  
             const selections = editor.selections;
             if (selections.length > 1) {
                 selections.pop(); // Remove the last selection
@@ -127,7 +127,6 @@ var log = (message) => {
     
 function activateAutoSelect(context) {
     // outputChannel = vscode.window.createOutputChannel("ex1ext");
-
     context.subscriptions.push(vscode.commands.registerCommand('ez.pasteAndSelect', async () => {
         const editor = vscode.window.activeTextEditor;
         if(!editor/*  || !editor.focused */) {

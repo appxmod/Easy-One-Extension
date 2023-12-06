@@ -1,2 +1,3 @@
 
-ez1ext-0.1.0.vsix
+*.vsix
+package.bat

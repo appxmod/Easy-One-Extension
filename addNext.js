@@ -33,12 +33,17 @@ const addSelection = (startIndex, endIndex) => {
 
 const  sep1 = /[\u0000-\u002F\u003A-\u0040\u005B-\u0060\u007B-\u007E\u2000-\u2bff\u3000-\u303f\u4dc0-\u4dff\ufb00-\ufe0f\ufe20-\uffff]/;
 
+
+	function isSepChar(c) {
+		return !c || c!='_' && sep1.test(c);
+	}
+	
 	const search = (start, end) => {
 		const range = new vscode.Range(start, end);
 		const editor = vscode.window.activeTextEditor;
 		const { document } = editor;
 		const searchText = selectedText();
-		
+		// document_ documentElement _document xdocument 
 		var text = document.getText(new vscode.Range(new vscode.Position(0, 0), range.end));
 		var startIndex = document.offsetAt(range.start)
 			, idx
@@ -46,8 +51,8 @@ const  sep1 = /[\u0000-\u002F\u003A-\u0040\u005B-\u0060\u007B-\u007E\u2000-\u2bf
 			;
 		while((idx=text.indexOf(searchText, startIndex)) >= 0) {
 			var st=text[idx-1], idx1=idx+len, ed=text[idx1], c0=text[idx], c1=text[idx1-1];
-			if((!st||st!='_'&&sep1.test(st))||sep1.test(c0) 
-				&& (!ed||ed!='_'&&sep1.test(ed))||sep1.test(c1)) {
+			if((isSepChar(st)||isSepChar(c0) )
+				&& (isSepChar(ed))||isSepChar(c1)) {
 				addSelection(idx, idx + len);
 				return true;
 			}
