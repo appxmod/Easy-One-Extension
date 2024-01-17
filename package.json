@@ -2,7 +2,7 @@
 	"name": "ez1ext",
 	"displayName": "Easy One Extension",
 	"description": "An optimized extension bunddle consists of Adam's Toolbar, Duplicate tab and select-same-text.",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"publisher": "KnIfER",
 	"icon": "icon.png",
 	"homepage": "https://github.com/appxmod/Easy-One-Extension",

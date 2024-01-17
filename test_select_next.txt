@@ -1,0 +1,10 @@
+zvm vm1 vm1 xzxzxvm
+vm
+
+
+if (key.equals(Option.nGridMode_0_maxLines)) {
+	return Math.abs(opt.get(Option.nGridMode_0_maxLines));
+}
+if (key.equals(Option.nGridMode_0_maxLines_use)) {
+	return opt.get(Option.nGridMode_0_maxLines)>=0;
+}
